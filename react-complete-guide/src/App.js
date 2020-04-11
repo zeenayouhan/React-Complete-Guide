@@ -11,6 +11,19 @@ class App extends Component {
     ]
   }
 
+  switchHandler=()=>{
+    //console.log("Clicky");
+    this.setState({
+      Person:[
+        {name:"ZeenaL", age:"25"},
+        {name:"LashanZ", age:'26'}
+      ]
+    }
+
+    )
+
+  }
+
 
   render() {
     return(
@@ -18,7 +31,7 @@ class App extends Component {
       <h1>Hi I am Zameer Younus</h1>
       <Person name1={this.state.Person[0].name} age={this.state.Person[0].age}/>
       <Person name1={this.state.Person[1].name} age={this.state.Person[1].age}/>
-      <button>Switch</button>
+      <button onClick={this.switchHandler}>Switch</button>
     </div>
       // js compile to this one-> React.createElement('div',{className:"App"},React.createElement('h1',null,"Hi I am Zameer Younus"))
     )
