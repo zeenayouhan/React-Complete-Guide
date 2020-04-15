@@ -51,7 +51,8 @@ class App extends Component {
       Person:[
         {name:newName, age:"25"},
         {name:"Zammer", age:'26'}
-      ]
+      ],
+      showPersons: false
     }
 
     )
@@ -69,16 +70,23 @@ class App extends Component {
     )
 
   }
+togglePersonsHandler=()=>{
+  const doesShow=this.state.showPersons;
+  this.setState({
+    showPersons:!doesShow
+  })
 
+}
 
   render() {
     const style={
       backgroundColor: 'red',
-      
+
     }
     return(
     <div className="App">
       <h1>Hi I am Zameer Younus</h1>
+      {this.state.showPersons=== true? <div>
       <Person 
       name1={this.state.Person[0].name} 
       age={this.state.Person[0].age}
@@ -88,7 +96,9 @@ class App extends Component {
       click={this.switchHandler.bind(this,"lZena")} 
       age={this.state.Person[1].age}
       />
-      <button style={style} onClick={()=>this.switchHandler("Zeenaaaa")}>Switch</button>
+      </div>: null}
+      
+      <button style={style} onClick={this.togglePersonsHandler}>Switch</button>
     </div>
       // js compile to this one-> React.createElement('div',{className:"App"},React.createElement('h1',null,"Hi I am Zameer Younus"))
     )
