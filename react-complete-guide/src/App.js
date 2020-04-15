@@ -74,6 +74,7 @@ class App extends Component {
   render() {
     const style={
       backgroundColor: 'red',
+      
     }
     return(
     <div className="App">
