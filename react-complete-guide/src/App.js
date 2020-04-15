@@ -72,6 +72,9 @@ class App extends Component {
 
 
   render() {
+    const style={
+      backgroundColor: 'red',
+    }
     return(
     <div className="App">
       <h1>Hi I am Zameer Younus</h1>
@@ -84,7 +87,7 @@ class App extends Component {
       click={this.switchHandler.bind(this,"lZena")} 
       age={this.state.Person[1].age}
       />
-      <button onClick={()=>this.switchHandler("Zeenaaaa")}>Switch</button>
+      <button style={style} onClick={()=>this.switchHandler("Zeenaaaa")}>Switch</button>
     </div>
       // js compile to this one-> React.createElement('div',{className:"App"},React.createElement('h1',null,"Hi I am Zameer Younus"))
     )
