@@ -78,15 +78,20 @@ togglePersonsHandler=()=>{
 
 }
 
+
+
+
   render() {
     const style={
       backgroundColor: 'red',
 
     }
-    return(
-    <div className="App">
-      <h1>Hi I am Zameer Younus</h1>
-      {this.state.showPersons=== true? <div>
+
+    let persons=null;
+
+    if(this.state.showPersons){
+      persons=(
+        <div>
       <Person 
       name1={this.state.Person[0].name} 
       age={this.state.Person[0].age}
@@ -96,7 +101,25 @@ togglePersonsHandler=()=>{
       click={this.switchHandler.bind(this,"lZena")} 
       age={this.state.Person[1].age}
       />
-      </div>: null}
+      </div>
+
+      )
+    }
+    return(
+    <div className="App">
+      <h1>Hi I am Zameer Younus</h1>
+      {persons}
+      {/* {this.state.showPersons=== true? <div>
+      <Person 
+      name1={this.state.Person[0].name} 
+      age={this.state.Person[0].age}
+      change={this.namechangeHandler}/>
+      <Person 
+      name1={this.state.Person[1].name}  
+      click={this.switchHandler.bind(this,"lZena")} 
+      age={this.state.Person[1].age}
+      />
+      </div>: null} */}
       
       <button style={style} onClick={this.togglePersonsHandler}>Switch</button>
     </div>
