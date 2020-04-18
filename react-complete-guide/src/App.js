@@ -1,6 +1,7 @@
 import React, { useState, Component } from 'react';
 import Person from './Person/Person';
 import './App.css';
+import person from './Person/Person';
 
 
 
@@ -70,6 +71,16 @@ class App extends Component {
     )
 
   }
+
+deletePersonHandler= (personIndex)=>{
+  const persons=this.state.persons;
+  persons.splice(personIndex,1);
+  this.setState({
+    persons:persons
+  })
+
+}
+
 togglePersonsHandler=()=>{
   const doesShow=this.state.showPersons;
   this.setState({
@@ -92,7 +103,11 @@ togglePersonsHandler=()=>{
     if(this.state.showPersons){
       persons=(
         <div>
-      <Person 
+          {this.state.persons.map((person,index)=>{
+            return <Person name={person.name} age={person.age} click={()=>this.deletePersonHandler(index)}/>
+          })}
+
+      {/* <Person 
       name1={this.state.Person[0].name} 
       age={this.state.Person[0].age}
       change={this.namechangeHandler}/>
@@ -100,7 +115,7 @@ togglePersonsHandler=()=>{
       name1={this.state.Person[1].name}  
       click={this.switchHandler.bind(this,"lZena")} 
       age={this.state.Person[1].age}
-      />
+      /> */}
       </div>
 
       )
@@ -122,6 +137,7 @@ togglePersonsHandler=()=>{
       </div>: null} */}
       
       <button style={style} onClick={this.togglePersonsHandler}>Switch</button>
+      <button style={style} onClick={this.deletePersonHandler}>Delete</button>
     </div>
       // js compile to this one-> React.createElement('div',{className:"App"},React.createElement('h1',null,"Hi I am Zameer Younus"))
     )
