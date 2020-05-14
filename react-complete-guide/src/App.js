@@ -1,7 +1,8 @@
 import React from 'react';
 import {useState} from 'react';
 import Validation from './ValidationComponent/Validation'
-import Char from './Char/Char'
+import Char from './Char/Char';
+import ErrorBoundry from './ErrorBoundry/ErrorBoundry'
 
 import './App.css';
 
@@ -34,10 +35,13 @@ const App = ()=>{
 
   return(
 <div>
-<input type="text" onChange={inputChangeHandler} value={inputsome.userInput} className="App"/>
+  <ErrorBoundry>
+  <input type="text" onChange={inputChangeHandler} value={inputsome.userInput} className="App"/>
   <p>{inputsome.userInput}</p>
   <Validation inputlength={inputsome.userInput.length}/>
   {charlist}
+  </ErrorBoundry>
+
 </div>
     
   )
