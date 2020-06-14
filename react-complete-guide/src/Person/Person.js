@@ -1,15 +1,13 @@
 import React from 'react';
 import './Person.css';
 
-const person = (props) =>{
-    return (
-        <div onClick={props.click} className="Person">
-            <p>I am a person  named {props.name1} and {props.age}.</p>
-            <input type="text" onChange={props.change} value={props.name1}></input>
-       
-        </div>
+const person=(props)=>{
     
-        )
+    return (
+    <div className="Person" >
+        <p onClick={props.click} >I'm {props.name} and I am {props.age}</p>
+        <p>{props.children}</p>
+        <input type='text' onChange={props.change}/>
+        </div>)
 }
-
-export default person;
+export default person; 
